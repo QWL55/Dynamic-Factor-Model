@@ -1,0 +1,52 @@
+State,Available ,Final,Link to data source 
+Alabama,0,0,https://www.alabamapublichealth.gov/healthstats/statistical-query.html
+Alaska,0,0,https://doh.sd.gov/statistics/
+Arizona,0,0,https://pub.azdhs.gov/health-stats/menu/info/trend/index.php?pg=births
+Arkansas,0,0,https://healthstats.adh.arkansas.gov/scripts/broker.exe?_service=default&_program=arcode.fertility_welcome_live.sas&_debug=
+California,1,0,https://data.chhs.ca.gov/dataset/live-birth-profiles-by-county
+Colorado,0,0,https://cdphe.colorado.gov/center-for-health-and-environmental-data/registries-and-vital-statistics/vital-statistics-program
+Connecticut,1,0,https://portal.ct.gov/dph/Health-Information-Systems--Reporting/Hisrhome/Vital-Statistics-Registration-Reports
+Delaware,0,0,https://dhss.delaware.gov/dhss/dph/hp/bthsdths_pubdata.html
+District of Columbia,0,0,
+Florida,1,1,http://www.flpublichealth.com/VSprov/rdPage.aspx?rdReport=ProvReports&radReport=T14A&drpYear=2020
+Georgia,0,0,https://oasis.state.ga.us/
+Hawaii ,1,1,https://health.hawaii.gov/vitalstatistics/preliminary-vital-statistics-for-2021/
+Idaho ,0,0,https://publicdocuments.dhw.idaho.gov/WebLink/Browse.aspx?id=11588&dbid=0&repo=PUBLIC-DOCUMENTS
+Illinois,0,0,https://dph.illinois.gov/data-statistics/vital-statistics/birth-statistics.html
+Indiana ,0,0,https://www.in.gov/health/erc/data-analysis-and-risk-factors/data-analysis-and-risk-factors-home/interactive-query-tools-and-dashboards/number-of-live-births-and-age-specific-birth-rates/
+Iowa,0,0,https://tracking.idph.iowa.gov/people-community/Reproduction-and-Birth/Live-Births-and-Deaths
+Kansas,0,0,https://www.kansashealthmatters.org/indicators/index/view?indicatorId=1366&localeId=131164
+Kentucky,0,0,
+Louisiana,0,0,https://ldh.la.gov/page/704
+Maine,0,0,https://www.maine.gov/dhhs/mecdc/public-health-systems/data-research/vital-records/births.shtml
+Maryland,0,0,https://health.maryland.gov/vsa/Pages/reports.aspx
+Massachusetts,0,0,https://www.mass.gov/lists/birth-data
+Michigan,0,0,https://www.mdch.state.mi.us/osr/natality/BirthsTrends.asp
+Minnesota,0,0,https://www.health.state.mn.us/data/mchs/vitalstats/birth.html
+Mississippi,0,0,"https://msdh.ms.gov/msdhsite/_static/31,0,75,702.html"
+Missouri ,0,0,https://healthapps.dhss.mo.gov/MoPhims/ProfileBuilder?pc=2
+Montana ,0,0,https://dphhs.mt.gov/publichealth/epidemiology/oess-vs
+Nebraska,0,0,https://dhhs.ne.gov/Pages/Nebraska-Public-Health-Atlas.aspx
+Nevada ,0,0,
+New Hampshire,0,0,https://www.dhhs.nh.gov/dphs/hsdm/birth/publications.htm
+New Jersey,0,0,https://www-doh.state.nj.us/doh-shad/query/builder/birth/BirthPopCnty/FertRate.html
+New Mexico,0,0,https://www.nmhealth.org/data/
+New York,0,0,https://www.health.ny.gov/statistics/vital_statistics/vs_data_research.htm
+North Carolina ,0,0,https://schs.dph.ncdhhs.gov/data/provisional/
+North Dakota ,0,0,https://doh.sd.gov/statistics/
+Ohio,1,1,https://publicapps.odh.ohio.gov/EDW/DataCatalog
+Oklahoma,0,0,https://www.health.state.ok.us/stats/Vital_Statistics/index.shtml
+Oregon,1,0,https://www.oregon.gov/oha/PH/BIRTHDEATHCERTIFICATES/VITALSTATISTICS/BIRTH/Pages/index.aspx
+Pennsylvania ,0,0,https://www.health.pa.gov/topics/HealthStatistics/VitalStatistics/BirthStatistics/Pages/birth-statistics.aspx
+Rhode Island,0,0,https://health.ri.gov/data/birth/
+South Carolina,0,0,https://scdhec.gov/vital-records/parentage/sc-vital-records-data-and-statistics
+South Dakota,0,0,https://doh.sd.gov/statistics/
+Tennessee,0,0,https://www.tn.gov/health/health-program-areas/statistics/health-data/vital-statistics.html
+Texas,0,0,https://healthdata.dshs.texas.gov/dashboard/births-and-deaths/live-births-2005-2017#
+Utah,0,0,https://ibis.health.utah.gov/ibisph-view/indicator/view/FertRat.UT_US_Age.html
+Vermont,0,0,https://www.healthvermont.gov/health-statistics-vital-records/vital-records-population-data/vital-statistics-reports-and-maps
+Virginia,0,0,https://apps.vdh.virginia.gov/HealthStats/stats.htm
+Washington,0,0,https://www.doh.wa.gov/DataandStatisticalReports/HealthDataVisualization/BirthDashboards
+West Virginia,0,0,http://www.wvdhhr.org/bph/hsc/statserv/stat_triv.asp#birth
+Wisconsin,0,0,https://www.dhs.wisconsin.gov/wish/birth/form.htm
+Wyoming,0,0,https://health.wyo.gov/admin/vitalstatistics/reports/

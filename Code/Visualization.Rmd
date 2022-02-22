@@ -1,0 +1,172 @@
+---
+title: "Visualization"
+author: "Qiwei Lin"
+date: "2/12/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = 'E:/RA/Zang/DFM')
+```
+
+# Setup
+
+```{r, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(geofacet)
+library(lubridate)
+```
+
+```{r}
+input_path <- 'Output Data/'
+output_path <- 'Visualization/'
+```
+
+```{r}
+avg_earn <- read_csv(paste0(input_path, 'Avg_Earn_10_21_by_Month.csv'))
+fertility <- read_csv(paste0(input_path,
+                             'Pred_Fertility_10_21_by_month.csv'))
+mortality <- read_csv(paste0(input_path,
+                             'Pred_Mortality_10_20_by_Month.csv'))
+labor <- read_csv(paste0(input_path,
+                         'Labor_Par_10_21_by_Month.csv'))
+unemploy <- read_csv(paste0(input_path,
+                     'Unemploy_10_21_by_Month.csv'))
+```
+
+# Visualization 
+
+```{r}
+# fertility
+fig_fer <- fertility %>% 
+  ggplot() + 
+  geom_line(aes(x=time, y=Fertility), color='blue') + 
+  facet_geo(vars(State), grid = "us_state_grid1") + 
+  ylab('Births per 1000 women aged 15 to 44') +  
+  labs(
+    title = "Monthly Fertility\nby State\nfrom 2010 to 2021",
+    caption = "Source: CDC Wonder"
+  )
+```
+
+```{r}
+# mortality
+fig_mor_f <- mortality %>% 
+  ggplot() + 
+  geom_line(aes(x=time, y=mor_female), color='blue') + 
+  facet_geo(vars(State), grid = "us_state_grid1") + 
+  ylab('Deaths per 100,000') +  
+  labs(
+    title = "Monthly Female Mortality\nby State\nfrom 2010 to 2020",
+    caption = "Source: CDC Wonder"
+  )
+
+fig_mor_m <- mortality %>% 
+  ggplot() + 
+  geom_line(aes(x=time, y=mor_male), color='blue') + 
+  facet_geo(vars(State), grid = "us_state_grid1") + 
+  ylab('Deaths per 100,000') +  
+  labs(
+    title = "Monthly Male Mortality\nby State\nfrom 2010 to 2020",
+    caption = "Source: CDC Wonder"
+  )
+```
+
+```{r}
+# average earning
+fig_avg_earn <- avg_earn %>% 
+  mutate(
+    `Month Code` = as.integer(str_extract(period, '[1-9][0-9]?')),
+    time = make_date(year, `Month Code`)) %>% 
+  ggplot() + 
+  geom_line(aes(x=time, y=value), color='blue') + 
+  facet_geo(vars(state), grid = "us_state_grid1") + 
+  ylab('Average Weekly Earnings of All Employees, In Dollars') +  
+  labs(
+    title = "Average Weekly Earnings\nof All Employees\nby State\nfrom 2010 to 2021",
+    caption = "Source: Bureau of Labor Statistics"
+  )
+```
+
+```{r}
+# labor participation
+fig_labor <- labor %>% 
+  mutate(
+    `Month Code` = as.integer(str_extract(period, '[1-9]+')),
+    time = make_date(year, `Month Code`)) %>% 
+  ggplot() + 
+  geom_line(aes(x=time, y=value), color='blue') + 
+  facet_geo(vars(state), grid = "us_state_grid1") + 
+  ylab('Labor Force Participation Rate (Seasonally Adjusted)') +  
+  labs(
+    title = "Labor force participation rate\nby State\nfrom 2010 to 2021",
+    caption = "Source: Bureau of Labor Statistics"
+  )
+```
+
+```{r}
+# unemployment
+fig_unemp <- unemploy %>% 
+  mutate(
+    `Month Code` = as.integer(str_extract(period, '[1-9]+')),
+    time = make_date(year, `Month Code`)) %>% 
+  ggplot() + 
+  geom_line(aes(x=time, y=value), color='blue') + 
+  facet_geo(vars(state), grid = "us_state_grid1") + 
+  ylab('Unemployment Rate (Seasonally Adjusted)') +  
+  labs(
+    title = "Unemployment Rate\nby State\nfrom 2010 to 2021",
+    caption = "Source: Bureau of Labor Statistics"
+  )
+```
+
+
+```{r}
+plot_state <- function(plot, plot_name){
+  plot +
+  theme_minimal(base_family = "Fira Sans Compressed") +
+  theme(
+    # Top-right position
+    legend.pos = c(0.875, 0.975),
+    # Elements within a guide are placed one next to the other in the same row
+    legend.direction = "horizontal",
+    # Different guides are stacked vertically
+    legend.box = "vertical",
+    # No legend title
+    legend.title = element_blank(),
+    # Light background color
+    plot.background = element_rect(fill = "#F5F4EF", color = NA),
+    plot.margin = margin(20, 30, 20, 30),
+    # Customize the title. Note the new font family and its larger size.
+    plot.title = element_text(
+      margin = margin(0, 0, -100, 0), 
+      size = 26, 
+      family = "KyivType Sans", 
+      face = "bold", 
+      vjust = 0, 
+      color = "grey25"
+    ),
+    plot.caption = element_text(size = 12),
+    # Remove titles for x and y axes.
+    #axis.title = element_blank(),
+    # Specify color for the tick labels along both axes 
+    axis.text = element_text(color = "grey40", size = 12),
+    # Specify face and color for the text on top of each panel/facet
+    strip.text = element_text(face = "bold", color = "grey20")
+  )
+  ggsave(paste0(output_path, plot_name, '.png'), 
+         width = 20, height = 20, units = "in")
+
+}
+```
+
+```{r}
+plot_state(fig_fer, 'Fertility')
+plot_state(fig_mor_m, 'Mortality_m')
+plot_state(fig_mor_f, 'Mortality_f')
+plot_state(fig_labor, 'Labor_Par')
+plot_state(fig_unemp, 'Unemployment')
+plot_state(fig_avg_earn, 'Avg_Earn')
+```
+
